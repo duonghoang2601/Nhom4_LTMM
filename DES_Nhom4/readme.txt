@@ -5,24 +5,19 @@ Yêu cầu:
 
 Cần kiểm tra xem file des.c và des.h co nằm trong bash không, nếu chưa có, chạy 
 
-cd "duong-dan-den-thumuc"
-
 Compile chương trình:
-gcc -O3 des.c run_des.c -o run_des.o
+B1: đi đến thư mục
+cd "duong dan den thu muc"
+B2: 
+Mã hóa:
+gcc common/des_core.c common/des_tables.c encrypt/main_encrypt.c -o encrypt_des.exe
+ .\encrypt_des.exe
 
-Bay gio, ta tao mot file ban ro can ma hoa co dinh dang .txt (vi du "example.txt") cung voi duong dan hua file .c va .h
+ Giải mã:
+gcc common/des_core.c common/des_tables.c decrypt/main_decrypt.c -o decrypt_des.exe
+.\decrypt_des.exe
 
-B1: Tao khoa
-./run_des.o -g "duong-dan-de-chua-file-khoa/keyfile.key"
-
-B2: Ma hoa file .txt ban ro
-./run_des.o -e "duong-dan-de-chua-file-khoa/keyfile.key" "duong-dan-chua-file-an-ro/example.txt" "duong-dan-de-luu-file-ma-hoa/example.enc"
-
-3: Giai ma
-./run_des.o -d "duong-dan-de-chua-file-khoa/keyfile.key" "duong-dan-de-luu-file-ma-hoa/example.enc" "duong-dan-luu-file-duoc-giai/de_example.txt"
-
-
-Lưu y:
-- co the thay thoi ten file tuy y "exmple" chi la vi du
--   mode -e la mode ma hoa , mode -d la mode giai ma
-- co the thuc hien 3DES bang cach -e -d -e voi khoa 1 va 3 giong nhau con khoa 2 tao them
+Test Vector chuẩn của NIST cho DES
+Key: 0101010101010101
+Plaintext: 95F8A5E5DD31D900
+Ciphertext: 8000000000000000
